@@ -27,27 +27,76 @@ public class ListaDeProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbCategoria = new javax.swing.JComboBox<>();
+        jlbGestionDeProductos = new javax.swing.JLabel();
+        jlbProducto = new javax.swing.JLabel();
+        jlbPrecio = new javax.swing.JLabel();
+        jlbCategoria = new javax.swing.JLabel();
+        jtxProducto = new javax.swing.JTextField();
+        jtxPrecio = new javax.swing.JTextField();
+        jbAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Electrónica", "Ropa", "Alimentos" }));
+
+        jlbGestionDeProductos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jlbGestionDeProductos.setText("GESTIÓN DE PRODUCTOS");
+
+        jlbProducto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlbProducto.setText("Producto:");
+
+        jlbPrecio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlbPrecio.setText("Precio:");
+
+        jlbCategoria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlbCategoria.setText("Categoría:");
+
+        jbAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbAgregar.setText("AGREGAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlbProducto)
+                    .addComponent(jlbPrecio)
+                    .addComponent(jlbCategoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jcbCategoria, 0, 100, Short.MAX_VALUE)
+                    .addComponent(jtxPrecio)
+                    .addComponent(jtxProducto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jbAgregar)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlbGestionDeProductos)
+                .addGap(79, 79, 79))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jlbGestionDeProductos)
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbProducto))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbPrecio))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbCategoria))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,6 +138,13 @@ public class ListaDeProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jbAgregar;
+    private javax.swing.JComboBox<String> jcbCategoria;
+    private javax.swing.JLabel jlbCategoria;
+    private javax.swing.JLabel jlbGestionDeProductos;
+    private javax.swing.JLabel jlbPrecio;
+    private javax.swing.JLabel jlbProducto;
+    private javax.swing.JTextField jtxPrecio;
+    private javax.swing.JTextField jtxProducto;
     // End of variables declaration//GEN-END:variables
 }
