@@ -52,10 +52,7 @@ public class ListaDeProductos extends javax.swing.JFrame {
         jtProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Producto", "Categoria", "Precio"
@@ -160,7 +157,7 @@ public class ListaDeProductos extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+//    private ProductoData pd = new ProductoData;
     /**
      * @param args the command line arguments
      */
