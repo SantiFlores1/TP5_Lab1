@@ -5,17 +5,38 @@
  */
 package tp5lab1.Vistas;
 
+import Entidades.Productos;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author 2014
  */
 public class ListaDeProductos extends javax.swing.JFrame {
 
+    
+    private HashSet<Productos> productos = new HashSet<>();
+    private DefaultTableModel modelo = new DefaultTableModel() {
+        
+        public boolean isCellEditable(int fila, int col) {
+            
+            return false;
+            
+        }
+        
+        
+    };
+    
+    
     /**
      * Creates new form ListaDeProductos
      */
     public ListaDeProductos() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -87,6 +108,11 @@ public class ListaDeProductos extends javax.swing.JFrame {
         jbAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Carrito_48px.png"))); // NOI18N
         jbAgregar.setText("AGREGAR");
+        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,6 +183,32 @@ public class ListaDeProductos extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+        // TODO add your handling code here:
+        
+        if (jtxProducto.getText().isEmpty() || jtxPrecio.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "Debe rellenar los campos.");
+            
+         }
+        
+        String producto = jtxProducto.getText();
+        Double precio = Double.parseDouble(jtxPrecio.getText());
+        String categoria = (String)jcbCategoria.getSelectedItem();
+        
+        Productos prod = new Productos(producto, categoria, precio);
+        
+        productos.add(prod);
+        JOptionPane.showMessageDialog(this, "Producto cargado.");
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jbAgregarActionPerformed
 //    private ProductoData pd = new ProductoData;
     /**
      * @param args the command line arguments
@@ -193,6 +245,22 @@ public class ListaDeProductos extends javax.swing.JFrame {
         });
     }
 
+    private void armarCabecera(){
+        
+        modelo.addColumn("Categoría");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Precio");
+        
+        jtProductos.setModel(modelo);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
