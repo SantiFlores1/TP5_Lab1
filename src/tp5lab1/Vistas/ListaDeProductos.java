@@ -203,6 +203,7 @@ public class ListaDeProductos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Producto cargado.");
         
         actualizarTabla();
+        limpiar();
     }//GEN-LAST:event_jbAgregarActionPerformed
 
     public static void main(String args[]) {
@@ -261,7 +262,14 @@ public class ListaDeProductos extends javax.swing.JFrame {
         }
     }
     
-    
+    private void limpiar() {
+        
+        jcbCategoria.setSelectedIndex(-1);
+        jtxProducto.setText("");
+        jtxPrecio.setText("");
+        
+    }
+            
     
     
     
