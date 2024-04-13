@@ -96,14 +96,23 @@ public class ListaDeProductos extends javax.swing.JFrame {
         jlbProducto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlbProducto.setText("Producto:");
 
+        jtxProducto.setEditable(false);
+
         jlbPrecio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlbPrecio.setText("Precio:");
+
+        jtxPrecio.setEditable(false);
 
         jlbCategoria.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlbCategoria.setText("Categoría:");
 
         jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Electrónica", "Ropa", "Alimentos" }));
         jcbCategoria.setSelectedIndex(-1);
+        jcbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbCategoriaActionPerformed(evt);
+            }
+        });
 
         jbAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Carrito_48px.png"))); // NOI18N
@@ -187,24 +196,42 @@ public class ListaDeProductos extends javax.swing.JFrame {
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
         // TODO add your handling code here:
         
-        if (jtxProducto.getText().isEmpty() || jtxPrecio.getText().isEmpty()) {
+        if (jcbCategoria.getSelectedIndex() == -1) {
             
+            JOptionPane.showMessageDialog(this, "Debe Seleccionar Categoria");
+            return;
+         }else if(jtxProducto.getText().isEmpty() || jtxPrecio.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe rellenar los campos.");
-            
+             return;
          }
-        
-        String producto = jtxProducto.getText();
-        Double precio = Double.parseDouble(jtxPrecio.getText());
-        String categoria = (String)jcbCategoria.getSelectedItem();
-        
-        Productos prod = new Productos(producto, categoria, precio);
-        
-        productos.add(prod);
-        JOptionPane.showMessageDialog(this, "Producto cargado.");
-        
-        actualizarTabla();
-        limpiar();
+        try{
+            String producto = jtxProducto.getText();
+            Double precio = Double.parseDouble(jtxPrecio.getText());
+            String categoria = (String)jcbCategoria.getSelectedItem();
+
+            Productos prod = new Productos(producto, categoria, precio);
+
+            productos.add(prod);
+            JOptionPane.showMessageDialog(this, "Producto cargado.");
+
+            actualizarTabla();
+            limpiar();
+        }catch(NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Valores erroneos, intente nuevamente.");
+            limpiar();
+        }
     }//GEN-LAST:event_jbAgregarActionPerformed
+
+    private void jcbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCategoriaActionPerformed
+        // TODO add your handling code here:
+        if(jcbCategoria.getSelectedIndex() == -1){
+            jtxProducto.setEditable(false);
+            jtxPrecio.setEditable(false);
+        }else{
+            jtxProducto.setEditable(true);
+            jtxPrecio.setEditable(true);
+        }
+    }//GEN-LAST:event_jcbCategoriaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
