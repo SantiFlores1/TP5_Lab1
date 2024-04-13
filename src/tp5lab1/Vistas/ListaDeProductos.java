@@ -202,17 +202,9 @@ public class ListaDeProductos extends javax.swing.JFrame {
         productos.add(prod);
         JOptionPane.showMessageDialog(this, "Producto cargado.");
         
-        
-        
-        
-        
-        
-        
+        actualizarTabla();
     }//GEN-LAST:event_jbAgregarActionPerformed
-//    private ProductoData pd = new ProductoData;
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -247,15 +239,27 @@ public class ListaDeProductos extends javax.swing.JFrame {
 
     private void armarCabecera(){
         
-        modelo.addColumn("Categoría");
         modelo.addColumn("Producto");
+        modelo.addColumn("Categoria");
         modelo.addColumn("Precio");
         
         jtProductos.setModel(modelo);
         
+        
+       
+        
     }
     
+    private void actualizarTabla() {
+       
+        modelo.setRowCount(0);
+
     
+        for (Productos prod : productos) {
+            Object[] fila = {prod.getNombre(), prod.getCategoria(), prod.getPrecio()};
+            modelo.addRow(fila);
+        }
+    }
     
     
     
